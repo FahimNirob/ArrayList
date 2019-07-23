@@ -1,26 +1,34 @@
+// array traversing
+
 #include<stdio.h>
 #include<math.h>
 
 int main(){
-    int n = 10,total = 0;
-    double sine,average, pi = 3.14;
-    int i;
-    int max,min;
-    int num[10] = {12,23,67,30,6,90,78,45,60,26};
-    max = num[0];
-    min = num[0];
-
-    for (i=0; i<n; i++){
-        if(num[i]>max){
-            max = num[i];
-        }
-        if(num[i]<min){
-            min = num[i];
-        }
-        total = total + num[i];
-        sine = sin((num[i]*pi)/180);
-        printf("sin value of %d is %.2f\n",num[i],sine);
+    int arr[20];
+    int i,n;
+    int max,min,total=0;
+    double sine,avg,pi = 3.14;
+    printf("Enter array size : ");
+    scanf("%d",&n);
+    printf("\nEnter array items : ");
+    for(i=0;i<n;i++){
+        scanf("%d",&arr[i]);
     }
-    average = total/(n*1.0);
-    printf("Max = %d\nMin = %d\nTotal = %d\nAverage = %.2f\n",max,min,total,average);
+    max = arr[0];
+    min = arr[0];
+
+    for(i=0;i<n;i++){
+        if(arr[i] > max) max = arr[i];
+        if(arr[i] < min) min = arr[i];
+        total = total + arr[i];
+        sine = sin((arr[i] * pi)/180);
+        printf("Sin value of %d = %.2f\n",arr[i],sine);
+    }
+    avg = total/(1.0*n);
+
+    printf("Maximum : %d\n",max);
+    printf("Minimum : %d\n",min);
+    printf("Total : %d\n",total);
+    printf("Average : %.2f\n",avg);
+    return 0;
 }
